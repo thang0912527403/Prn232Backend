@@ -4,7 +4,7 @@ namespace Prn232Project.Services
 {
     public interface IUserServices
     {
-        Roles GetRoles(string username);
-        Users GetUsers(string username);
+        string GetRoles(string username);
+        User? GetUsers(string username);
     }
 }

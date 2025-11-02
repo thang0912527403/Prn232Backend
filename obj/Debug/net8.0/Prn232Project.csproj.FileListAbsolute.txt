@@ -20,7 +20,6 @@ C:\Users\thang\source\repos\Prn232Project\Prn232Project\obj\Debug\net8.0\staticw
 C:\Users\thang\source\repos\Prn232Project\Prn232Project\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\thang\source\repos\Prn232Project\Prn232Project\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\thang\source\repos\Prn232Project\Prn232Project\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\thang\source\repos\Prn232Project\Prn232Project\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\thang\source\repos\Prn232Project\Prn232Project\obj\Debug\net8.0\Prn232Project.dll
 C:\Users\thang\source\repos\Prn232Project\Prn232Project\obj\Debug\net8.0\refint\Prn232Project.dll
 C:\Users\thang\source\repos\Prn232Project\Prn232Project\obj\Debug\net8.0\Prn232Project.pdb
@@ -165,3 +164,5 @@ C:\Users\thang\source\repos\Prn232Project\Prn232Project\bin\Debug\net8.0\runtime
 C:\Users\thang\source\repos\Prn232Project\Prn232Project\obj\Debug\net8.0\Prn232Project.csproj.AssemblyReference.cache
 C:\Users\thang\source\repos\Prn232Project\Prn232Project\obj\Debug\net8.0\Prn232Pr.37D365D0.Up2Date
 C:\Users\thang\source\repos\Prn232Project\Prn232Project\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\thang\source\repos\Prn232Project\Prn232Project\obj\Debug\net8.0\Prn232Project.sourcelink.json
+C:\Users\thang\source\repos\Prn232Project\Prn232Project\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

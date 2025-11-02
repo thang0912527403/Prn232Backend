@@ -25,9 +25,7 @@ namespace Prn232Project.Services
            {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.Name, username),
-                new Claim(ClaimTypes.Role,  _userService.GetRoles(username).Name),
-                new Claim("security_stamp", user.SecurityStamp ?? ""),
-                new Claim("concurrency_stamp", user.ConcurrencyStamp ?? "")
+                new Claim(ClaimTypes.Role,  _userService.GetRoles(username)),
             };
             var token = new JwtSecurityToken(
                issuer: jwtSettings["Issuer"],

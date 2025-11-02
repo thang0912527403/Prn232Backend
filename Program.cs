@@ -12,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 var config = builder.Configuration;
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 // Add services to the container.
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
+builder.Services.AddDbContext<CloneEbayDbContext>(options =>
     options.UseSqlServer(connectionString));
 
 builder.Services.AddControllers().
@@ -55,7 +55,7 @@ builder.Services.AddAuthentication(options =>
 //Register services
 builder.Services.AddScoped<IUserServices, UserServiceVer1>();
 builder.Services.AddScoped<ITokenServices, TokenServiceVer1>();
-builder.Services.AddScoped<IPasswordHasher<Users>, PasswordHasher<Users>>();
+builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 
 
 var app = builder.Build();

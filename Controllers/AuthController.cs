@@ -14,10 +14,10 @@ namespace Prn232Project.Controllers
     [Route("[controller]")]
     public class AuthController : Controller
     {
-        private readonly ApplicationDbContext _context;
-        private readonly IPasswordHasher<Users> _hasher;
+        private readonly CloneEbayDbContext _context;
+        private readonly IPasswordHasher<User> _hasher;
         private readonly ITokenServices _tokenServices;
-        public AuthController(ApplicationDbContext context, IPasswordHasher<Users> hasher, ITokenServices tokenServices)
+        public AuthController(CloneEbayDbContext context, IPasswordHasher<User> hasher, ITokenServices tokenServices)
         {
             _context = context;
             _hasher = hasher;
@@ -28,7 +28,7 @@ namespace Prn232Project.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            if (await _context.Users.AnyAsync(u => u.UserName == dto.UserName))
+            if (await _context.Users.AnyAsync(u => u.Username == dto.UserName))
             {
                 return Conflict(new
                 {
@@ -48,32 +48,17 @@ namespace Prn232Project.Controllers
             }
             try
             {
-                var user = new Users
+                var user = new User
                 {
-                    UserName = dto.UserName,
+                    Username = dto.UserName,
                     Password = dto.Password,
                     Email = dto.Email,
-                    EmailConfirmed = false,
-                    PhoneNumberConfirmed = false,
-                    TwoFactorEnabled = false,
-                    LockoutEnabled = true,
-                    AccessFailedCount = 0,
+                    Role="User",
+                    AvatarUrl= dto.AvatarUrl
                 };
                 user.Password = _hasher.HashPassword(user, user.Password);
                 await _context.Users.AddAsync(user);
                 await _context.SaveChangesAsync();
-                var role = await _context.Roles.FirstOrDefaultAsync(r => r.Name == "Admin");
-                if (role != null)
-                {
-                    var userRole = new UserRoles
-                    {
-                        UserId = user.Id,
-                        RoleId = role.Id
-                    };
-
-                    await _context.UserRoles.AddAsync(userRole);
-                    await _context.SaveChangesAsync();
-                }
 
             }
             catch (Exception ex)
@@ -91,12 +76,12 @@ namespace Prn232Project.Controllers
                 detail = "Register successfully",
             });
         }
-        [HttpGet("Login")]
+        [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] LoginDto dto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            var user = await _context.Users.Include(u => u.RefreshTokens).FirstOrDefaultAsync(u => u.UserName == dto.UserName);
+            var user = await _context.Users.Include(u => u.RefreshTokens).FirstOrDefaultAsync(u => u.Username == dto.UserName);
             if (user == null)
                 return Unauthorized(new
                 {
@@ -122,20 +107,6 @@ namespace Prn232Project.Controllers
                 refreshToken.UserId = user.Id;
                 await _context.RefreshTokens.AddAsync(refreshToken);
                 await _context.SaveChangesAsync();
-                Response.Cookies.Append("accessToken", accessToken, new CookieOptions
-                {
-                    HttpOnly = true,
-                    Secure = true,
-                    SameSite = SameSiteMode.None,
-                    Expires = DateTime.UtcNow.AddDays(7)
-                });
-                Response.Cookies.Append("refreshToken", refreshToken.Token, new CookieOptions
-                {
-                    HttpOnly = true,
-                    Secure = true,
-                    SameSite = SameSiteMode.None,
-                    Expires = DateTime.UtcNow.AddDays(7)
-                });
             }
             catch (Exception e)
             {
@@ -195,7 +166,6 @@ namespace Prn232Project.Controllers
                 });
             }
             var accessToken = string.Empty;
-            var newRefreshToken = new RefreshToken();
             var user = await _context.Users
                  .Include(u => u.RefreshTokens)
                  .FirstOrDefaultAsync(u => u.RefreshTokens.Any(rt => rt.Token == refreshToken));
@@ -210,9 +180,7 @@ namespace Prn232Project.Controllers
             }
             try
             {
-                accessToken = _tokenServices.CreateAccessToken(user.UserName);
-                newRefreshToken = _tokenServices.CreateRefreshToken(user.UserName);
-                oldRefreshToken.IsRevoked = true;
+                accessToken = _tokenServices.CreateAccessToken(user.Username);
                 await _context.SaveChangesAsync();
             }
             catch (Exception ex)
@@ -228,7 +196,6 @@ namespace Prn232Project.Controllers
             {
                 status = StatusCodes.Status200OK,
                 accessToken = accessToken,
-                refreshToken = newRefreshToken.Token,
             });
         }
 
