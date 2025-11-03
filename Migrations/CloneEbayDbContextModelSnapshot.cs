@@ -130,58 +130,6 @@ namespace Prn232Project.Migrations
                         .HasName("PK__Category__3213E83F2EFB0A5B");
 
                     b.ToTable("Category", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Electronics"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Fashion"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Home & Garden"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Toys & Hobbies"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "Automotive"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Name = "Health & Beauty"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Name = "Sports"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Name = "Books & Media"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Name = "Art & Collectibles"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Name = "Pet Supplies"
-                        });
                 });
 
             modelBuilder.Entity("Prn232Project.Models.Coupon", b =>
@@ -533,119 +481,6 @@ namespace Prn232Project.Migrations
                     b.HasIndex("SellerId");
 
                     b.ToTable("Product", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CategoryId = 1,
-                            Description = "Brand new, unopened box. Official Apple warranty.",
-                            Images = "https://example.com/images/iphone15.jpg",
-                            IsAuction = false,
-                            Price = 34990000m,
-                            SellerId = 1,
-                            Title = "iPhone 15 Pro Max 256GB"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CategoryId = 1,
-                            Description = "Flagship Android phone, 12GB RAM, 512GB storage.",
-                            Images = "https://example.com/images/s24ultra.jpg",
-                            IsAuction = false,
-                            Price = 28990000m,
-                            SellerId = 1,
-                            Title = "Samsung Galaxy S24 Ultra"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CategoryId = 2,
-                            Description = "Classic white sneakers, size 42.",
-                            Images = "https://example.com/images/airforce1.jpg",
-                            IsAuction = false,
-                            Price = 2500000m,
-                            SellerId = 1,
-                            Title = "Nike Air Force 1"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CategoryId = 3,
-                            Description = "Solid oak coffee table, modern style.",
-                            Images = "https://example.com/images/coffeetable.jpg",
-                            IsAuction = false,
-                            Price = 1800000m,
-                            SellerId = 1,
-                            Title = "Wooden Coffee Table"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CategoryId = 4,
-                            Description = "Brand new, collector’s edition set.",
-                            Images = "https://example.com/images/lego-falcon.jpg",
-                            IsAuction = false,
-                            Price = 5500000m,
-                            SellerId = 1,
-                            Title = "Lego Star Wars Millennium Falcon"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            CategoryId = 5,
-                            Description = "High-performance synthetic motor oil.",
-                            Images = "https://example.com/images/mobil1.jpg",
-                            IsAuction = false,
-                            Price = 900000m,
-                            SellerId = 1,
-                            Title = "Mobil 1 Engine Oil 5W-30"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            CategoryId = 6,
-                            Description = "Anti-aging moisturizer for daily use.",
-                            Images = "https://example.com/images/loreal.jpg",
-                            IsAuction = false,
-                            Price = 450000m,
-                            SellerId = 1,
-                            Title = "L’Oreal Face Cream"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            CategoryId = 7,
-                            Description = "Official size 5 match ball.",
-                            Images = "https://example.com/images/adidasball.jpg",
-                            IsAuction = false,
-                            Price = 700000m,
-                            SellerId = 1,
-                            Title = "Adidas Football"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            CategoryId = 8,
-                            Description = "All 7 books in a hardcover collection.",
-                            Images = "https://example.com/images/harrypotter.jpg",
-                            IsAuction = false,
-                            Price = 950000m,
-                            SellerId = 1,
-                            Title = "Harry Potter Box Set"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            AuctionEndTime = new DateTime(2025, 11, 10, 12, 0, 0, 0, DateTimeKind.Unspecified),
-                            CategoryId = 9,
-                            Description = "Original 1960s oil painting, framed.",
-                            Images = "https://example.com/images/painting.jpg",
-                            IsAuction = true,
-                            Price = 8500000m,
-                            SellerId = 1,
-                            Title = "Vintage Painting"
-                        });
                 });
 
             modelBuilder.Entity("Prn232Project.Models.RefreshToken", b =>
@@ -682,7 +517,7 @@ namespace Prn232Project.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("RefreshTokens");
+                    b.ToTable("RefreshTokens", (string)null);
                 });
 
             modelBuilder.Entity("Prn232Project.Models.ReturnRequest", b =>
@@ -879,71 +714,6 @@ namespace Prn232Project.Migrations
                         .HasFilter("[email] IS NOT NULL");
 
                     b.ToTable("User", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            AvatarUrl = "https://example.com/avatars/seller1.jpg",
-                            Email = "seller1@example.com",
-                            Password = "AQAAAAIAAYagAAAAEO/sSkgVQt/6GpbA5qw++IFFBhFeA2/hYI1EdGR9ukHJfAE+eEcP/2+/zhU2dX/CQw==",
-                            Role = "seller",
-                            Username = "seller1"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            AvatarUrl = "https://example.com/avatars/seller2.jpg",
-                            Email = "seller2@example.com",
-                            Password = "AQAAAAIAAYagAAAAEO/sSkgVQt/6GpbA5qw++IFFBhFeA2/hYI1EdGR9ukHJfAE+eEcP/2+/zhU2dX/CQw==",
-                            Role = "seller",
-                            Username = "seller2"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            AvatarUrl = "https://example.com/avatars/seller3.jpg",
-                            Email = "seller3@example.com",
-                            Password = "AQAAAAIAAYagAAAAEO/sSkgVQt/6GpbA5qw++IFFBhFeA2/hYI1EdGR9ukHJfAE+eEcP/2+/zhU2dX/CQw==",
-                            Role = "seller",
-                            Username = "seller3"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            AvatarUrl = "https://example.com/avatars/buyer1.jpg",
-                            Email = "buyer1@example.com",
-                            Password = "AQAAAAIAAYagAAAAEO/sSkgVQt/6GpbA5qw++IFFBhFeA2/hYI1EdGR9ukHJfAE+eEcP/2+/zhU2dX/CQw==",
-                            Role = "buyer",
-                            Username = "buyer1"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            AvatarUrl = "https://example.com/avatars/buyer2.jpg",
-                            Email = "buyer2@example.com",
-                            Password = "AQAAAAIAAYagAAAAEO/sSkgVQt/6GpbA5qw++IFFBhFeA2/hYI1EdGR9ukHJfAE+eEcP/2+/zhU2dX/CQw==",
-                            Role = "buyer",
-                            Username = "buyer2"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            AvatarUrl = "https://example.com/avatars/buyer3.jpg",
-                            Email = "buyer3@example.com",
-                            Password = "AQAAAAIAAYagAAAAEO/sSkgVQt/6GpbA5qw++IFFBhFeA2/hYI1EdGR9ukHJfAE+eEcP/2+/zhU2dX/CQw==",
-                            Role = "buyer",
-                            Username = "buyer3"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            AvatarUrl = "https://example.com/avatars/buyer4.jpg",
-                            Email = "buyer4@example.com",
-                            Password = "AQAAAAIAAYagAAAAEO/sSkgVQt/6GpbA5qw++IFFBhFeA2/hYI1EdGR9ukHJfAE+eEcP/2+/zhU2dX/CQw==",
-                            Role = "buyer",
-                            Username = "buyer4"
-                        });
                 });
 
             modelBuilder.Entity("Prn232Project.Models.Address", b =>
