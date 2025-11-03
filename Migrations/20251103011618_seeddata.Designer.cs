@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Prn232Project.Data;
 
@@ -11,9 +12,11 @@ using Prn232Project.Data;
 namespace Prn232Project.Migrations
 {
     [DbContext(typeof(CloneEbayDbContext))]
-    partial class CloneEbayDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251103011618_seeddata")]
+    partial class seeddata
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -886,7 +889,7 @@ namespace Prn232Project.Migrations
                             Id = 1,
                             AvatarUrl = "https://example.com/avatars/seller1.jpg",
                             Email = "seller1@example.com",
-                            Password = "AQAAAAIAAYagAAAAEO/sSkgVQt/6GpbA5qw++IFFBhFeA2/hYI1EdGR9ukHJfAE+eEcP/2+/zhU2dX/CQw==",
+                            Password = "123456",
                             Role = "seller",
                             Username = "seller1"
                         },
@@ -895,7 +898,7 @@ namespace Prn232Project.Migrations
                             Id = 2,
                             AvatarUrl = "https://example.com/avatars/seller2.jpg",
                             Email = "seller2@example.com",
-                            Password = "AQAAAAIAAYagAAAAEO/sSkgVQt/6GpbA5qw++IFFBhFeA2/hYI1EdGR9ukHJfAE+eEcP/2+/zhU2dX/CQw==",
+                            Password = "123456",
                             Role = "seller",
                             Username = "seller2"
                         },
@@ -904,7 +907,7 @@ namespace Prn232Project.Migrations
                             Id = 3,
                             AvatarUrl = "https://example.com/avatars/seller3.jpg",
                             Email = "seller3@example.com",
-                            Password = "AQAAAAIAAYagAAAAEO/sSkgVQt/6GpbA5qw++IFFBhFeA2/hYI1EdGR9ukHJfAE+eEcP/2+/zhU2dX/CQw==",
+                            Password = "123456",
                             Role = "seller",
                             Username = "seller3"
                         },
@@ -913,7 +916,7 @@ namespace Prn232Project.Migrations
                             Id = 4,
                             AvatarUrl = "https://example.com/avatars/buyer1.jpg",
                             Email = "buyer1@example.com",
-                            Password = "AQAAAAIAAYagAAAAEO/sSkgVQt/6GpbA5qw++IFFBhFeA2/hYI1EdGR9ukHJfAE+eEcP/2+/zhU2dX/CQw==",
+                            Password = "123456",
                             Role = "buyer",
                             Username = "buyer1"
                         },
@@ -922,7 +925,7 @@ namespace Prn232Project.Migrations
                             Id = 5,
                             AvatarUrl = "https://example.com/avatars/buyer2.jpg",
                             Email = "buyer2@example.com",
-                            Password = "AQAAAAIAAYagAAAAEO/sSkgVQt/6GpbA5qw++IFFBhFeA2/hYI1EdGR9ukHJfAE+eEcP/2+/zhU2dX/CQw==",
+                            Password = "123456",
                             Role = "buyer",
                             Username = "buyer2"
                         },
@@ -931,7 +934,7 @@ namespace Prn232Project.Migrations
                             Id = 6,
                             AvatarUrl = "https://example.com/avatars/buyer3.jpg",
                             Email = "buyer3@example.com",
-                            Password = "AQAAAAIAAYagAAAAEO/sSkgVQt/6GpbA5qw++IFFBhFeA2/hYI1EdGR9ukHJfAE+eEcP/2+/zhU2dX/CQw==",
+                            Password = "123456",
                             Role = "buyer",
                             Username = "buyer3"
                         },
@@ -940,7 +943,7 @@ namespace Prn232Project.Migrations
                             Id = 7,
                             AvatarUrl = "https://example.com/avatars/buyer4.jpg",
                             Email = "buyer4@example.com",
-                            Password = "AQAAAAIAAYagAAAAEO/sSkgVQt/6GpbA5qw++IFFBhFeA2/hYI1EdGR9ukHJfAE+eEcP/2+/zhU2dX/CQw==",
+                            Password = "123456",
                             Role = "buyer",
                             Username = "buyer4"
                         });

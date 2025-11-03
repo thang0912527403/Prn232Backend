@@ -56,11 +56,21 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddScoped<IUserServices, UserServiceVer1>();
 builder.Services.AddScoped<ITokenServices, TokenServiceVer1>();
 builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
 
 
 var app = builder.Build();
 
-
+app.UseCors("AllowAll");
 app.UseAuthentication();
 app.UseAuthorization();
 

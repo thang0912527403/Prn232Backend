@@ -468,7 +468,44 @@ public partial class CloneEbayDbContext : DbContext
                 .HasMaxLength(100)
                 .HasColumnName("username");
         });
+        // 🧍 Seed Users
+        modelBuilder.Entity<User>().HasData(
+            new User { Id = 1, Username = "seller1", Email = "seller1@example.com", Password = "AQAAAAIAAYagAAAAEO/sSkgVQt/6GpbA5qw++IFFBhFeA2/hYI1EdGR9ukHJfAE+eEcP/2+/zhU2dX/CQw==", Role = "seller", AvatarUrl = "https://example.com/avatars/seller1.jpg" },
+            new User { Id = 2, Username = "seller2", Email = "seller2@example.com", Password = "AQAAAAIAAYagAAAAEO/sSkgVQt/6GpbA5qw++IFFBhFeA2/hYI1EdGR9ukHJfAE+eEcP/2+/zhU2dX/CQw==", Role = "seller", AvatarUrl = "https://example.com/avatars/seller2.jpg" },
+            new User { Id = 3, Username = "seller3", Email = "seller3@example.com", Password = "AQAAAAIAAYagAAAAEO/sSkgVQt/6GpbA5qw++IFFBhFeA2/hYI1EdGR9ukHJfAE+eEcP/2+/zhU2dX/CQw==", Role = "seller", AvatarUrl = "https://example.com/avatars/seller3.jpg" },
+            new User { Id = 4, Username = "buyer1", Email = "buyer1@example.com", Password = "AQAAAAIAAYagAAAAEO/sSkgVQt/6GpbA5qw++IFFBhFeA2/hYI1EdGR9ukHJfAE+eEcP/2+/zhU2dX/CQw==", Role = "buyer", AvatarUrl = "https://example.com/avatars/buyer1.jpg" },
+            new User { Id = 5, Username = "buyer2", Email = "buyer2@example.com", Password = "AQAAAAIAAYagAAAAEO/sSkgVQt/6GpbA5qw++IFFBhFeA2/hYI1EdGR9ukHJfAE+eEcP/2+/zhU2dX/CQw==", Role = "buyer", AvatarUrl = "https://example.com/avatars/buyer2.jpg" },
+            new User { Id = 6, Username = "buyer3", Email = "buyer3@example.com", Password = "AQAAAAIAAYagAAAAEO/sSkgVQt/6GpbA5qw++IFFBhFeA2/hYI1EdGR9ukHJfAE+eEcP/2+/zhU2dX/CQw==", Role = "buyer", AvatarUrl = "https://example.com/avatars/buyer3.jpg" },
+            new User { Id = 7, Username = "buyer4", Email = "buyer4@example.com", Password = "AQAAAAIAAYagAAAAEO/sSkgVQt/6GpbA5qw++IFFBhFeA2/hYI1EdGR9ukHJfAE+eEcP/2+/zhU2dX/CQw==", Role = "buyer", AvatarUrl = "https://example.com/avatars/buyer4.jpg" }
+        );
 
+        // 🏷️ Seed Categories
+        modelBuilder.Entity<Category>().HasData(
+            new Category { Id = 1, Name = "Electronics" },
+            new Category { Id = 2, Name = "Fashion" },
+            new Category { Id = 3, Name = "Home & Garden" },
+            new Category { Id = 4, Name = "Toys & Hobbies" },
+            new Category { Id = 5, Name = "Automotive" },
+            new Category { Id = 6, Name = "Health & Beauty" },
+            new Category { Id = 7, Name = "Sports" },
+            new Category { Id = 8, Name = "Books & Media" },
+            new Category { Id = 9, Name = "Art & Collectibles" },
+            new Category { Id = 10, Name = "Pet Supplies" }
+        );
+
+        // 📦 Seed Products
+        modelBuilder.Entity<Product>().HasData(
+            new Product { Id = 1, Title = "iPhone 15 Pro Max 256GB", Description = "Brand new, unopened box. Official Apple warranty.", Price = 34990000, Images = "https://example.com/images/iphone15.jpg", CategoryId = 1, SellerId = 1, IsAuction = false },
+            new Product { Id = 2, Title = "Samsung Galaxy S24 Ultra", Description = "Flagship Android phone, 12GB RAM, 512GB storage.", Price = 28990000, Images = "https://example.com/images/s24ultra.jpg", CategoryId = 1, SellerId = 1, IsAuction = false },
+            new Product { Id = 3, Title = "Nike Air Force 1", Description = "Classic white sneakers, size 42.", Price = 2500000, Images = "https://example.com/images/airforce1.jpg", CategoryId = 2, SellerId = 1, IsAuction = false },
+            new Product { Id = 4, Title = "Wooden Coffee Table", Description = "Solid oak coffee table, modern style.", Price = 1800000, Images = "https://example.com/images/coffeetable.jpg", CategoryId = 3, SellerId = 1, IsAuction = false },
+            new Product { Id = 5, Title = "Lego Star Wars Millennium Falcon", Description = "Brand new, collector’s edition set.", Price = 5500000, Images = "https://example.com/images/lego-falcon.jpg", CategoryId = 4, SellerId = 1, IsAuction = false },
+            new Product { Id = 6, Title = "Mobil 1 Engine Oil 5W-30", Description = "High-performance synthetic motor oil.", Price = 900000, Images = "https://example.com/images/mobil1.jpg", CategoryId = 5, SellerId = 1, IsAuction = false },
+            new Product { Id = 7, Title = "L’Oreal Face Cream", Description = "Anti-aging moisturizer for daily use.", Price = 450000, Images = "https://example.com/images/loreal.jpg", CategoryId = 6, SellerId = 1, IsAuction = false },
+            new Product { Id = 8, Title = "Adidas Football", Description = "Official size 5 match ball.", Price = 700000, Images = "https://example.com/images/adidasball.jpg", CategoryId = 7, SellerId = 1, IsAuction = false },
+            new Product { Id = 9, Title = "Harry Potter Box Set", Description = "All 7 books in a hardcover collection.", Price = 950000, Images = "https://example.com/images/harrypotter.jpg", CategoryId = 8, SellerId = 1, IsAuction = false },
+            new Product { Id = 10, Title = "Vintage Painting", Description = "Original 1960s oil painting, framed.", Price = 8500000, Images = "https://example.com/images/painting.jpg", CategoryId = 9, SellerId = 1, IsAuction = true, AuctionEndTime = new DateTime(2025, 11, 10, 12, 0, 0) }
+        );
         OnModelCreatingPartial(modelBuilder);
     }
 
